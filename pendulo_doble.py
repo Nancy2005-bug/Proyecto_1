@@ -1,6 +1,6 @@
 import math
 import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
+from matplotlib.animation import FuncAnimation, PillowWriter
 from abc import ABC, abstractmethod
 from functools import cache
 
@@ -181,7 +181,7 @@ Condiciones iniciales
 g = 9.81 # Gravedad
 m1, m2 = 1.0, 1.0 # Masas de los péndulos
 L1, L2 = 1.0, 1.0 # Longitudes de los péndulos
-t1, t2 = math.radians(180), math.radians(181)  # Ángulos iniciales 
+t1, t2 = math.radians(45), math.radians(45)  # Ángulos iniciales 
 w1, w2 = 0.0, 0.0  # Velocidades iniciales
 
 pendulo = PenduloDoble(g, m1, m2, t1, t2, w1, w2, L1, L2)
@@ -292,6 +292,10 @@ def update(frame):
 
 ani = FuncAnimation(fig, update, frames=200, init_func=init, blit=True, interval=50)
 
-#plt.tight_layout()
+# Guardar la animación como GIF
+gif_writer = PillowWriter(fps=24)
+ani.save("pendulo_doble.gif", writer=gif_writer)
+
+plt.tight_layout()
 plt.show()
 
