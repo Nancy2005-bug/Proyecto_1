@@ -181,7 +181,7 @@ Condiciones iniciales
 g = 9.81 # Gravedad
 m1, m2 = 1.0, 1.0 # Masas de los péndulos
 L1, L2 = 1.0, 1.0 # Longitudes de los péndulos
-t1, t2 = math.radians(45), math.radians(45)  # Ángulos iniciales 
+t1, t2 = math.radians(45), math.radians(45)  # Ángulos iniciales | Si se desea en radianes cambiar a math.pi
 w1, w2 = 0.0, 0.0  # Velocidades iniciales
 
 pendulo = PenduloDoble(g, m1, m2, t1, t2, w1, w2, L1, L2)
@@ -278,6 +278,8 @@ def update(frame):
     line_theta2.set_data(t_data, theta2_data)
     
     """
+    Visualización en tiempo real de la energía del sistema.
+    
     energia_potencial = pendulo.energia_potencial()
     energia_cinetica = pendulo.energia_cinetica()
     energia_mecanica = pendulo.energia_mecanica()
