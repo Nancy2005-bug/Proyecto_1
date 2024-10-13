@@ -25,7 +25,25 @@ Los parámetros se definen en la sección de **Condiciones iniciales** del códi
     g = 9.81  # Gravedad
     m1, m2 = 1.0, 1.0  # Masas de los péndulos
     L1, L2 = 1.0, 1.0  # Longitudes de los péndulos
-    t1, t2 = math.radians(45), math.radians(45)  # Ángulos iniciales
+    t1, t2 = math.radians(45), math.radians(45)  # Ángulos iniciales | Si se desea en radianes cambiar a math.pi
     w1, w2 = 0.0, 0.0  # Velocidades iniciales
 
+En caso de que se desee poner los ángulos iniciales en radianes puede cambiar `math.radians()` a `math.pi`. 
 
+Ejemplo: En el archivo están 45 grados, equivalente a $\pi / 4$ en radianes. Para cambiarlo simplemente modifique `math.radians(45)` a `math.pi/4`.
+
+## Visualización de las energías del sistema:
+
+En la sección **Visualización en tiempo real de la energía del sistema**, se puede ver la evolución de la energía potencial, cinética y mecánica del sistema en el transcurso de la animación. Puede añardirlo simplemente quitando las comillas de los comentarios.
+
+    Visualización en tiempo real de la energía del sistema.
+    
+    energia_potencial = pendulo.energia_potencial()
+    energia_cinetica = pendulo.energia_cinetica()
+    energia_mecanica = pendulo.energia_mecanica()
+    print(f"Tiempo: {frame * dt:.2f}s")
+    print(f"Energía Potencial: {energia_potencial:.4f} J")
+    print(f"Energía Cinética: {energia_cinetica:.4f} J")
+    print(f"Energía Mecánica: {energia_mecanica:.4f} J")
+    print("-" * 40)
+    
